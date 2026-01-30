@@ -15,6 +15,8 @@ class TicketTypeRequest {
 
         this.#ticketQuantity = ticketQuantity;
         this.#ticketType = ticketType;
+
+        Object.freeze(this);
     }
 
     get ticketQuantity() {

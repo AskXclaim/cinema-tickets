@@ -14,6 +14,8 @@ This project contains an implementation of a Ticket service based on the followi
 Clone the project, and run `npm i` to install all packages used.
 use the command `npm test` to run the unit tests
 
-### Recommendations:
-- JavaScript was used though I would recommend using TypeScript if possible
+### Consideration:
+- Node (JavaScript) was used though I would recommend using TypeScript if possible
 - In this instance, validations were done without any npm packages though I would recommend using a package like joi
+-  Making `TicketService` `purchaseTickets` method async would be what I would recommend but this may mean going against
+the constraint 'The TicketService interface CANNOT be modified.'

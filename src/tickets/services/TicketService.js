@@ -2,7 +2,7 @@ const TicketType = require("../types_Constants/TicketType");
 const TicketServiceError = require("../../exceptions/TicketServiceError");
 const {Max_Quantity_Of_Tickets} = require("../types_Constants/TicketPrices");
 const {TicketPrices} = require("../types_Constants/TicketPrices");
-const TicketTypeRequest = require("../requests/TicketTypeRequest");
+const TicketTypeRequest = require("../models/TicketTypeRequest");
 
 class TicketService {
     constructor(ticketPaymentService, seatReservationService) {
@@ -11,7 +11,6 @@ class TicketService {
     }
 
     purchaseTickets(accountId, ...ticketTypeRequests) {
-        // return new Promise((resolve, reject) => {
         try {
             this.#validateArguments(accountId, ticketTypeRequests);
 
@@ -27,12 +26,9 @@ class TicketService {
             this.ticketPaymentService.makePayment(accountId, totalAmount);
             this.seatReservationService.reserveSeat(accountId, totalSeatsToReserve);
 
-            // resolve();
         } catch (error) {
-            // reject(error);
             throw error;
         }
-        // });
     }
 
     #validateArguments(accountId, ticketTypeRequests) {
@@ -46,9 +42,9 @@ class TicketService {
             throw new TicketServiceError("Requests contains one or more invalid request(s)");
     }
 
-    #isAccountValid = (accountId) => !(!accountId || typeof accountId !== "number" || accountId <= 0);
+    #isAccountValid = (accountId) => Number.isInteger(accountId) && accountId > 0;
 
-    #areRequestsPresent = (requests) => !(requests?.length === 0);
+    #areRequestsPresent = (requests) => requests.length > 0;
 
     #areRequestsValid = (requests) => requests.every(request => request instanceof TicketTypeRequest);
 

@@ -1,5 +1,5 @@
 const {describe, expect} = require("@jest/globals");
-const TicketTypeRequest = require("../../src/tickets/requests/TicketTypeRequest");
+const TicketTypeRequest = require("../../src/tickets/models/TicketTypeRequest");
 const TicketType = require("../../src/tickets/types_Constants/TicketType");
 const TicketTypeRequestError = require("../../src/exceptions/TicketTypeRequestError");
 
