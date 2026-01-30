@@ -77,7 +77,7 @@ describe("TicketService.purchaseTickets", () => {
 
     });
 
-    it("should throw no error if request is valid and business rule are met",  () => {
+    it("should throw no error if request is valid and business rules are met",  () => {
          expect(() => ticketService.purchaseTickets(1, ...[new TicketTypeRequest(TicketType.CHILD, 1),
             new TicketTypeRequest(TicketType.INFANT, 1), new TicketTypeRequest(TicketType.ADULT, 1)]))
             .not.toThrow(TicketServiceError);
