@@ -12,7 +12,7 @@ This project contains an implementation of a Ticket service based on the followi
 
 ### Running the application
 Clone the project, and run `npm i` to install all packages used.
-use the command `npm test` to run the unit tests
+Use the command `npm test` to run the unit tests.
 
 ### Consideration:
 - Node (JavaScript) was used though I would recommend using TypeScript if possible
