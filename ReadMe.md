@@ -9,6 +9,7 @@ This project contains an implementation of a Ticket service based on the followi
 - The seat will always be reserved once a reservation request has been made to the `SeatReservationService`.
 
 **Please note:  `TicketPaymentService` & `SeatReservationService` have not been supplied.**
+PS: There is intentionally no index.js file.
 
 ### Running the application
 Clone the project, and run `npm i` to install all packages used.
