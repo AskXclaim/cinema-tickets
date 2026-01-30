@@ -1,4 +1,4 @@
-const TicketTypeRequestError = require('../../exceptions/TicketTypeRequestError');
+const TicketTypeRequestError = require("../../exceptions/TicketTypeRequestError");
 const TicketType = require("../types_Constants/TicketType");
 
 class TicketTypeRequest {
@@ -7,30 +7,28 @@ class TicketTypeRequest {
 
     constructor(ticketType, ticketQuantity) {
         if (!this.#isTicketTypeValid(ticketType)) {
-            throw new TicketTypeRequestError('Ticket type is required')
+            throw new TicketTypeRequestError("A valid Ticket type is required");
         }
         if (!this.#isTicketQuantityValid(ticketQuantity)) {
-            throw new TicketTypeRequestError('Number of tickets must be a non-negative integer')
+            throw new TicketTypeRequestError("Number of tickets must be a non-negative integer");
         }
 
         this.#ticketQuantity = ticketQuantity;
         this.#ticketType = ticketType;
     }
 
-     get TicketQuantity() {
-        return this.#ticketQuantity
-    }
-    get TicketType() {
-        return this.#ticketQuantity
+    get ticketQuantity() {
+        return this.#ticketQuantity;
     }
 
-    #isTicketTypeValid = (ticketType) =>
-        !(!ticketType || (ticketType !== TicketType.INFANT || ticketType !== TicketType.CHILD
-            || ticketType !== TicketType.ADULT));
+    get ticketType() {
+        return this.#ticketType;
+    }
+
+    #isTicketTypeValid = (ticketType) => Object.values(TicketType).includes(ticketType);
 
     #isTicketQuantityValid = (ticketQuantity) =>
-        !(!Number.isInteger(ticketQuantity) || ticketQuantity < 0);
-
+        Number.isInteger(ticketQuantity) && ticketQuantity > 0;
 }
 
 module.exports = TicketTypeRequest;

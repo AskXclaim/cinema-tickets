@@ -7,8 +7,13 @@ This project contains an implementation of a Ticket service based on the followi
 - The payment will always go through once a payment request has been made to the `TicketPaymentService`.
 - The `SeatReservationService` implementation is an external provider with no defects. You do not need to worry about how the seat reservation algorithm works.
 - The seat will always be reserved once a reservation request has been made to the `SeatReservationService`.
+
 **Please note:  `TicketPaymentService` & `SeatReservationService` have not been supplied.**
 
 ### Running the application
 Clone the project, and run `npm i` to install all packages used.
 use the command `npm test` to run the unit tests
+
+### Recommendations:
+- JavaScript was used though I would recommend using TypeScript if possible
+- In this instance, validations were done without any npm packages though I would recommend using a package like joi
