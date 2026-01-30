@@ -23,6 +23,7 @@ class TicketService {
                 (totalAdultTickets * TicketPrices.ADULT) + (totalChildTickets * TicketPrices.CHILD);
             const totalSeatsToReserve = totalAdultTickets + totalChildTickets;
 
+            //external third party services
             this.ticketPaymentService.makePayment(accountId, totalAmount);
             this.seatReservationService.reserveSeat(accountId, totalSeatsToReserve);
 
